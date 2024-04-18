@@ -36,6 +36,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Set execute permission for mvnw
+        run: chmod +x ./mvnw
+
       - name: Build and Publish Docker Image
         run: |
           ./mvnw spring-boot:build-image -DskipTests
